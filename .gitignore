@@ -1,0 +1,14 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+config/.env
+
+# local info
+table_info.js
+.editorconfig
+
+# other
+test.js

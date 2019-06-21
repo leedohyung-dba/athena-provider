@@ -1,0 +1,39 @@
+service: athena-provider
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${env:NODE_ENV_MODE}
+  region: ${env:NODE_ENV_REGION}
+  apiGateway:
+    apiKeySourceType: HEADER
+  iamRoleStatements:
+    $ref: ./config/iamRoleStatements.json
+
+functions:
+  set:
+    handler: set.handler
+    memorySize: 128
+    timeout: 120
+    # events: # NOTE: update this with your api gateway info
+    #   - http:
+    #       path: /set
+    #       method: post
+    #       private: true
+  get:
+    handler: get.handler
+    memorySize: 128
+    timeout: 90
+
+custom:
+  dotenv:
+    path: ./config/.env
+    basePath: ./
+    include:
+      - BUCKET
+      - S3_OBJECT_PREFIXS
+      - IAM_ACCESS_KEY_ID
+      - IAM_SECRET_ACCESS_KEY
+
+plugins:
+  - serverless-dotenv-plugin
