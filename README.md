@@ -1,2 +1,2 @@
 # athena-provider
-![image](https://user-images.githubusercontent.com/11989096/59930251-8681ff00-947d-11e9-978a-e53c800f6095.png)
+![image](https://user-images.githubusercontent.com/11989096/59930399-ca750400-947d-11e9-8e45-6adb85918fbe.png)
