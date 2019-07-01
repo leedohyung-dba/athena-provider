@@ -6,7 +6,7 @@ exports.handler = async (event) => {
   const data = JSON.parse(event.body)
   const athenaProvider = new AthenaProvider()
 
-  return athenaProvider.find(data)
+  return athenaProvider.findCount(data)
     .then((result) =>{
       return {
         statusCode: 200,

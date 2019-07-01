@@ -24,6 +24,20 @@ functions:
     handler: get.handler
     memorySize: 128
     timeout: 90
+    # events: # NOTE: update this with your api gateway info
+    #   - http:
+    #       path: /get
+    #       method: post
+    #       private: true
+  count:
+    handler: count.handler
+    memorySize: 128
+    timeout: 90
+    # events: # NOTE: update this with your api gateway info
+    #   - http:
+    #       path: /count
+    #       method: post
+    #       private: true
 
 custom:
   dotenv:
