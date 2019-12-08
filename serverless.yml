@@ -1,0 +1,44 @@
+service: athena-provider
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${env:NODE_ENV_MODE}
+  region: ${env:NODE_ENV_REGION}
+  apiGateway:
+    apiKeySourceType: HEADER
+  iamRoleStatements:
+    $ref: ./config/iamRoleStatements.json
+
+functions:
+  set:
+    handler: set.handler
+    memorySize: 128
+    timeout: 120
+  get:
+    handler: get.handler
+    memorySize: 128
+    timeout: 90
+  count:
+    handler: count.handler
+    memorySize: 128
+    timeout: 90
+
+custom:
+  dotenv:
+    path: ./config/.env
+    basePath: ./
+    include:
+      - IAM_ACCESS_KEY_ID
+      - IAM_SECRET_ACCESS_KEY
+      - DEBUG_MODE
+      - TABLE_PAR_KEY
+      - BUCKET
+      - ATHENA_OUTPUT_LOCATION
+      - ATHENA_DATEBASE
+      - S3_OBJECT_PREFIXS_OF_SYSTEMCODE1
+      - ATHENA_TABLE_OF_SYSTEMCODE1
+
+
+plugins:
+  - serverless-dotenv-plugin
