@@ -8,7 +8,7 @@ const REC_REQUIRED_COLS = [
   // 'field_1'
 ]
 
-// テーブルPK
+// テーブルパーティショニfield
 const TABLE_PAR_KEY = process.env.TABLE_PAR_KEY
 // S3 BUCKET
 const BUCKET = process.env.BUCKET
